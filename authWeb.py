@@ -7,7 +7,7 @@ from flask import request
 
 import google.oauth2.credentials
 import google_auth_oauthlib.flow
-import googleapiclient.discovery
+from googleapiclient.discovery import build
 
 # This variable specifies the name of a file that contains the OAuth 2.0
 # information for this application, including its client_id and client_secret.
