@@ -2,12 +2,11 @@
 
 import os
 import flask
-#import requests
-from flask import request
+import requests
 
 import google.oauth2.credentials
 import google_auth_oauthlib.flow
-from googleapiclient.discovery import build
+import googleapiclient.discovery
 
 # This variable specifies the name of a file that contains the OAuth 2.0
 # information for this application, including its client_id and client_secret.
@@ -162,8 +161,5 @@ if __name__ == '__main__':
   # When running locally, disable OAuthlib's HTTPs verification.
   # ACTION ITEM for developers:
   #     When running in production *do not* leave this option enabled.
-  os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
-
-  # Specify a hostname and port that are set as a valid redirect URI
-  # for your API project in the Google API Console.
-  app.run('localhost', 5000, debug=True)
+  port = int(os.environ.get("PORT", 5000))
+  app.run(host='0.0.0.0', port=port)
